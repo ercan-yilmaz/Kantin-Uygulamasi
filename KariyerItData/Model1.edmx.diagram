@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b41f9f6ba7ff4897bff45dc59ca09706" Name="Diagram1">
+        <EntityTypeShape EntityType="KariyerITModel1.Gelir" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.GelirTipi" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.Gider" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.GiderTipi" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.Kullanici" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.Stok" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.Urun" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.UrunTipi" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel1.Yonetici" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="KariyerITModel1.FK_Gelir_GelirTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel1.FK_Gelir_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel1.FK_Gider_GiderTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel1.FK_Gider_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel1.FK_Stok_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel1.FK_Urun_UrunTipi" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

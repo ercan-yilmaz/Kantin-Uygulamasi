@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="24ffcf6182be4f3d9f953f71899e3882" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="KariyerITModel.Gelir" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.GelirTipi" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.Gider" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.GiderTipi" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.Kullanici" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.Stok" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.Urun" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KariyerITModel.UrunTipi" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="KariyerITModel.FK_Gelir_GelirTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel.FK_Gelir_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel.FK_Gider_GiderTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel.FK_Gider_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel.FK_Stok_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="KariyerITModel.FK_Urun_UrunTipi" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KariyerITModel.Yonetici" Width="1.5" PointX="7.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

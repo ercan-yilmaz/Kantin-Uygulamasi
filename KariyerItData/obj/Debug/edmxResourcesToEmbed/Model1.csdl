@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KariyerITModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Gelir">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <Property Name="Tutar" Type="Double" Nullable="false" />
+    <Property Name="Detay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <Property Name="GelirTipiId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GelirTipi" Relationship="Self.FK_Gelir_GelirTipi" FromRole="Gelir" ToRole="GelirTipi" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Gelir_Kullanici" FromRole="Gelir" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="GelirTipi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Gelir" Relationship="Self.FK_Gelir_GelirTipi" FromRole="GelirTipi" ToRole="Gelir" />
+  </EntityType>
+  <EntityType Name="Gider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <Property Name="Tutar" Type="Double" Nullable="false" />
+    <Property Name="Detay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiderTipiId" Type="Int32" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="GiderTipi" Relationship="Self.FK_Gider_GiderTipi" FromRole="Gider" ToRole="GiderTipi" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_Gider_Kullanici" FromRole="Gider" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="GiderTipi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Gider" Relationship="Self.FK_Gider_GiderTipi" FromRole="GiderTipi" ToRole="Gider" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelNo" Type="Int32" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <Property Name="PersonelMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Gelir" Relationship="Self.FK_Gelir_Kullanici" FromRole="Kullanici" ToRole="Gelir" />
+    <NavigationProperty Name="Gider" Relationship="Self.FK_Gider_Kullanici" FromRole="Kullanici" ToRole="Gider" />
+  </EntityType>
+  <EntityType Name="Stok">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunId" Type="Int32" />
+    <Property Name="StokSayısı" Type="Int32" Nullable="false" />
+    <Property Name="EklemeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Urun" Relationship="Self.FK_Stok_Urun" FromRole="Stok" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UrunTipiId" Type="Int32" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GuncellemeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Stok" Relationship="Self.FK_Stok_Urun" FromRole="Urun" ToRole="Stok" />
+    <NavigationProperty Name="UrunTipi" Relationship="Self.FK_Urun_UrunTipi" FromRole="Urun" ToRole="UrunTipi" />
+  </EntityType>
+  <EntityType Name="UrunTipi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_UrunTipi" FromRole="UrunTipi" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Yonetici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SilindiMi" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Gelir_GelirTipi">
+    <End Role="GelirTipi" Type="Self.GelirTipi" Multiplicity="1" />
+    <End Role="Gelir" Type="Self.Gelir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GelirTipi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gelir">
+        <PropertyRef Name="GelirTipiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gelir_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Gelir" Type="Self.Gelir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gelir">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gider_GiderTipi">
+    <End Role="GiderTipi" Type="Self.GiderTipi" Multiplicity="1" />
+    <End Role="Gider" Type="Self.Gider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiderTipi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gider">
+        <PropertyRef Name="GiderTipiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gider_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="Gider" Type="Self.Gider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gider">
+        <PropertyRef Name="KullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stok_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="0..1" />
+    <End Role="Stok" Type="Self.Stok" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stok">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_UrunTipi">
+    <End Role="UrunTipi" Type="Self.UrunTipi" Multiplicity="0..1" />
+    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UrunTipi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="UrunTipiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="babaa" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gelir" EntityType="Self.Gelir" />
+    <EntitySet Name="GelirTipi" EntityType="Self.GelirTipi" />
+    <EntitySet Name="Gider" EntityType="Self.Gider" />
+    <EntitySet Name="GiderTipi" EntityType="Self.GiderTipi" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+    <EntitySet Name="Stok" EntityType="Self.Stok" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Urun" EntityType="Self.Urun" />
+    <EntitySet Name="UrunTipi" EntityType="Self.UrunTipi" />
+    <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
+    <AssociationSet Name="FK_Gelir_GelirTipi" Association="Self.FK_Gelir_GelirTipi">
+      <End Role="GelirTipi" EntitySet="GelirTipi" />
+      <End Role="Gelir" EntitySet="Gelir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gelir_Kullanici" Association="Self.FK_Gelir_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Gelir" EntitySet="Gelir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gider_GiderTipi" Association="Self.FK_Gider_GiderTipi">
+      <End Role="GiderTipi" EntitySet="GiderTipi" />
+      <End Role="Gider" EntitySet="Gider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gider_Kullanici" Association="Self.FK_Gider_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Gider" EntitySet="Gider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stok_Urun" Association="Self.FK_Stok_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Stok" EntitySet="Stok" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_UrunTipi" Association="Self.FK_Urun_UrunTipi">
+      <End Role="UrunTipi" EntitySet="UrunTipi" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
