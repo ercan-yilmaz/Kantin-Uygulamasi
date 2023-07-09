@@ -1,0 +1,14 @@
+﻿1 - Test etmek için öncelikle Data ve Winform projelerinde yer alan App.Config dosyalarındaki 
+ConnectionString alanını SQL bilgilerine göre ayarla.
+
+2 - Klasörde yer alan Script.SQL dosyasını çalıştır ve DB'yi Restore et.
+
+3 - Uygulamayı Visual Studio'dan çalıştır.
+
+4 - Yönetici olarak giriş yapabilmen için test bilgileri Yönetici tablosunda yazıyor.
+
+Bilgiler :
+
+a@b.com
+470345
+123456 
